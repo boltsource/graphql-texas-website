@@ -1,0 +1,54 @@
+query getUpcomingEvents($stage: Stage!, $date: Date!) {
+  events(stage: $stage, where: { date_gte: $date }) {
+    date
+    title
+    slug
+  }
+}
+
+query getPastEvents($stage: Stage!, $date: Date!) {
+  events(stage: $stage, where: { date_lte: $date }) {
+    id
+    date
+    title
+    slug
+  }
+}
+
+query getEventBySlug($stage: Stage!, $slug: String!) {
+  event(stage: $stage, where: { slug: $slug }) {
+    date
+    title
+    meetupId
+    speakers {
+      id
+      picture {
+        url
+      }
+      name
+      role
+      company {
+        name
+        url
+      }
+    }
+    schedule {
+      id
+      time
+      title
+      description
+    }
+    description
+    host {
+      picture {
+        url
+      }
+      name
+      role
+      company {
+        name
+        url
+      }
+    }
+  }
+}

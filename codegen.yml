@@ -1,0 +1,10 @@
+schema: ${GRAPHCMS_ENDPOINT}
+
+documents: schema.graphql
+
+generates:
+  generated/graphql.gen.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-graphql-request
