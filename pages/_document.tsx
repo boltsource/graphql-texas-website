@@ -35,7 +35,7 @@ class Document extends NextDocument {
           />
         </Head>
 
-        <body className="bg-white text-cinder text-md antialiased">
+        <body className="bg-white typography-default antialiased">
           <Main />
           <NextScript />
         </body>

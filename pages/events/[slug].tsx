@@ -8,7 +8,7 @@ import EventHost from '@components/events/event-host'
 import EventSchedule from '@components/events/event-schedule'
 import EventSpeakers from '@components/events/event-speakers'
 import SEO from '@components/seo'
-import ErrorMessage from '@components/ui/error-message'
+import FullScreenMessage from '@components/ui/full-screen-message'
 import Layout from '@components/ui/layout'
 import { getEventBySlug } from '@lib/api'
 
@@ -33,10 +33,7 @@ const EventPage: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
           title="Event not found"
           description="The event you are looking for does not exist."
         />
-        <ErrorMessage
-          title="Oops!"
-          message="The event you are looking for does not exist."
-        />
+        <FullScreenMessage message="The event you are looking for does not exist." />
       </Layout>
     )
   }

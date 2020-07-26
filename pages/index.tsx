@@ -14,7 +14,7 @@ const HomePage: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
   pastEvents,
 }) => {
   return (
-    <Layout isPreview={preview}>
+    <Layout isPreview={preview} className="py-header">
       <SEO />
       <UpcomingEvent event={upcomingEvent} />
       {pastEvents.length ? <PastEvents events={pastEvents} /> : null}

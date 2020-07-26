@@ -8,12 +8,14 @@ type LayoutProps = {
   isLoading?: boolean
   isPreview?: boolean
   navItems?: React.ComponentProps<typeof Nav>['items']
+  className?: string
 }
 
 const Layout: React.FC<LayoutProps> = ({
   isLoading,
   isPreview,
   navItems,
+  className,
   children,
 }) => {
   const [isScrolling, setIsScrolling] = React.useState(false)
@@ -38,7 +40,13 @@ const Layout: React.FC<LayoutProps> = ({
         isScrolling={isScrolling}
         navItems={navItems}
       />
-      <main className="flex-auto flex flex-col py-header z-10">{children}</main>
+      <main
+        className={['flex-auto flex flex-col xpy-header z-10', className]
+          .filter(Boolean)
+          .join(' ')}
+      >
+        {children}
+      </main>
       {isPreview !== undefined ? <PreviewMode isActive={isPreview} /> : null}
     </React.Fragment>
   )

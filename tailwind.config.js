@@ -15,6 +15,7 @@ module.exports = {
     colors: {
       transparent: 'transparent',
 
+      black: '#000000',
       cinder: '#1a1725',
       porcelain: '#ecf0f1',
       'royal-blue': '#6233ef',
@@ -131,8 +132,9 @@ module.exports = {
       ],
     },
     fontSize: {
-      xs: '12px',
-      sm: '14px',
+      '2xs': '12px',
+      xs: '14px',
+      sm: '16px',
       md: '18px',
       lg: '24px',
       xl: '48px',
@@ -312,6 +314,7 @@ module.exports = {
     }),
     zIndex: {
       auto: 'auto',
+      under: '-1',
       '0': '0',
       '10': '10',
       '20': '20',
@@ -505,6 +508,34 @@ module.exports = {
       '700': '700ms',
       '1000': '1000ms',
     },
+    textStyles: (theme) => ({
+      default: {
+        color: theme('colors.cynder'),
+        fontSize: theme('fontSize.sm'),
+        lineHeight: theme('lineHeight.tight'),
+
+        '@screen md': {
+          fontSize: theme('fontSize.md'),
+        },
+      },
+      heading: {
+        output: false,
+        lineHeight: theme('lineHeight.tight'),
+
+        '@screen md': {
+          lineHeight: theme('lineHeight.normal'),
+        },
+      },
+      hero: {
+        extends: 'heading',
+        fontSize: theme('fontSize.xl'),
+        fontWeight: theme('fontWeight.bold'),
+
+        '@screen md': {
+          fontSize: theme('fontSize.2xl'),
+        },
+      },
+    }),
   },
   variants: {
     accessibility: ['responsive', 'focus'],
@@ -607,5 +638,10 @@ module.exports = {
     transitionDelay: ['responsive'],
   },
   corePlugins: {},
-  plugins: [require('tailwind-color-alpha')()],
+  plugins: [
+    require('tailwindcss-typography')({
+      componentPrefix: 'typography-',
+    }),
+    require('tailwind-color-alpha')(),
+  ],
 }

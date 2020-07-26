@@ -7,7 +7,10 @@ type GridProps = {
 const Grid: React.FC<GridProps> = ({ className, children }) => {
   return (
     <div
-      className={['mx-auto container grid grid-cols-12 gap-md', className]
+      className={[
+        'mx-auto container grid grid-cols-6 md:grid-cols-12 gap-md p-md lg:p-none',
+        className,
+      ]
         .filter(Boolean)
         .join(' ')}
     >

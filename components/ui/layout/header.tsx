@@ -19,8 +19,8 @@ const Header: React.FC<HeaderProps> = ({
   return (
     <header
       className={[
-        'fixed w-full bg-white flex items-center z-20 transition-all ease-in duration-200',
-        isScrolling ? 'h-header-collapsed shadow-lg' : 'h-header',
+        'fixed w-full flex items-center z-20 transition-all ease-in duration-200',
+        isScrolling ? 'h-header-collapsed bg-white shadow-lg' : 'h-header',
       ].join(' ')}
     >
       <Grid className="items-center">
