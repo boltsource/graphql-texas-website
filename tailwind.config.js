@@ -17,9 +17,9 @@ module.exports = {
 
       black: '#000000',
       cinder: '#1a1725',
+      'pink-salmon': '#ff8caa',
       porcelain: '#ecf0f1',
       'royal-blue': '#6233ef',
-      whisper: '#f5f6fa',
       white: '#ffffff',
     },
     spacing: {
@@ -27,8 +27,9 @@ module.exports = {
       xs: '8px',
       sm: '16px',
       md: '24px',
-      lg: '80px',
-      xl: '160px',
+      lg: '40px',
+      xl: '80px',
+      '2xl': '160px',
     },
     backgroundColor: (theme) => theme('colors'),
     backgroundOpacity: (theme) => theme('opacity'),
@@ -134,7 +135,7 @@ module.exports = {
     fontSize: {
       '2xs': '12px',
       xs: '14px',
-      sm: '16px',
+      sm: '15px',
       md: '18px',
       lg: '24px',
       xl: '48px',
@@ -156,6 +157,8 @@ module.exports = {
       icon: '40px',
       logo: '64px',
       'logo-collapsed': '48px',
+      'avatar-small': '100px',
+      'avatar-big': '150px',
     }),
     inset: (theme) => ({
       '0': '0',
@@ -219,6 +222,7 @@ module.exports = {
       '0': '0',
       full: '100%',
       screen: '100vh',
+      'screen-minus-header': 'calc(100vh - 80px)',
     },
     minWidth: {
       '0': '0',
@@ -310,7 +314,11 @@ module.exports = {
       '11/12': '91.666667%',
       full: '100%',
       screen: '100vw',
+      'half-screen': '50vw',
+      'third-screen': '33vw',
       icon: '40px',
+      'avatar-small': '100px',
+      'avatar-big': '150px',
     }),
     zIndex: {
       auto: 'auto',
@@ -534,6 +542,46 @@ module.exports = {
         '@screen md': {
           fontSize: theme('fontSize.2xl'),
         },
+      },
+      'section-title': {
+        extends: 'heading',
+        fontSize: theme('fontSize.lg'),
+        fontWeight: theme('fontWeight.medium'),
+        borderBottomColor: theme('colors.pink-salmon'),
+        borderBottomStyle: 'solid',
+        borderBottomWidth: 2,
+        paddingBottom: '4px',
+
+        '@screen md': {
+          fontSize: theme('fontSize.xl'),
+        },
+      },
+      small: {
+        fontSize: theme('fontSize.xs'),
+
+        '@screen md': {
+          fontSize: theme('fontSize.sm'),
+        },
+      },
+      subtitle: {
+        extends: 'heading',
+        fontSize: theme('fontSize.md'),
+        fontWeight: theme('fontWeight.medium'),
+
+        '@screen md': {
+          fontSize: theme('fontSize.lg'),
+        },
+      },
+      linkBase: {
+        output: false,
+
+        '&:hover': {
+          textDecoration: 'underline',
+        },
+      },
+      'link-contrast': {
+        extneds: 'linkBase',
+        color: theme('colors.pink-salmon'),
       },
     }),
   },

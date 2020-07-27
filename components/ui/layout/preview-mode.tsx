@@ -57,7 +57,7 @@ const PreviewMode: React.FC<PreviewModeProps> = ({ isActive }) => {
           initial={{ opacity: 0, bottom: 0 }}
           animate={{ opacity: 1, bottom: 24 }}
           exit={{ opacity: 0 }}
-          className="fixed bottom-sm right-sm h-banner bg-cinder text-whisper text-sm flex justify-between items-center p-md z-20 rounded-md font-medium"
+          className="fixed bottom-sm right-sm h-banner bg-cinder text-white text-sm flex justify-between items-center p-md z-20 rounded-md font-medium"
         >
           Preview mode enabled
         </motion.div>
