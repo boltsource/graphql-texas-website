@@ -43,7 +43,7 @@ const Nav: React.FC<NavProps> = ({ isLoading, items }) => {
             >
               <Icon
                 variant={item.icon}
-                className="flex-shrink-0 w-icon h-icon text-cinder-alpha-25 mr-md"
+                className="flex-shrink-0 w-icon-small h-icon-small md:w-icon md:h-icon text-cinder-alpha-25 mr-sm md:mr-md"
               />
               {item.title}
             </a>

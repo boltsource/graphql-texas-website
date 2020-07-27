@@ -122,11 +122,11 @@ const EventSpeakers: React.FC<EventSpeakersProps> = ({
               ))}
             </ul>
           ) : (
-            <p className="mt-lg md:mt-xl">To be announced</p>
+            <p className="mt-lg md:mt-xl text-center">To be announced</p>
           )}
 
           {speakers.length && !isComplete ? (
-            <p className="mt-xl md:mt-2xl md:self-end typography-small">
+            <p className="mt-xl md:mt-2xl md:self-end typography-small text-center">
               + More speakers to be announced
             </p>
           ) : null}

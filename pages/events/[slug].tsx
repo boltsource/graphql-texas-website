@@ -54,7 +54,7 @@ const EventPage: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
         meetupId={event.meetupId}
       />
       <EventSpeakers isComplete={event.isComplete} speakers={event.speakers} />
-      <EventSchedule talks={event.schedule} />
+      <EventSchedule isComplete={event.isComplete} talks={event.schedule} />
       <EventHost description={event.description} host={event.host} />
     </Layout>
   )
