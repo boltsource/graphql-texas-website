@@ -161,6 +161,10 @@ module.exports = {
       'logo-collapsed': '48px',
       'avatar-small': '100px',
       'avatar-big': '150px',
+      ...Object.entries(theme('fontSize')).reduce(
+        (prev, [name, size]) => ({ ...prev, [`text-${name}`]: size }),
+        {}
+      ),
     }),
     inset: (theme) => ({
       '0': '0',

@@ -55,7 +55,7 @@ const Nav: React.FC<NavProps> = ({ isLoading, items }) => {
   return (
     <React.Fragment>
       {isLoading ? (
-        <div className="skeleton w-icon h-icon col-start-6" />
+        <div className="md:hidden skeleton w-icon h-icon col-start-6" />
       ) : (
         <button
           type="button"

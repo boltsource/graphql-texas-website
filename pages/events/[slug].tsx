@@ -27,6 +27,7 @@ const EventPage: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
     return (
       <Layout isLoading isPreview={preview}>
         <SEO />
+        <EventHeader isLoading />
       </Layout>
     )
   }
