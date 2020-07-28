@@ -324,6 +324,7 @@ module.exports = {
       'icon-small': '24px',
       'avatar-small': '100px',
       'avatar-big': '150px',
+      menu: '300px',
     }),
     zIndex: {
       auto: 'auto',

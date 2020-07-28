@@ -10,7 +10,7 @@ const EventShare: React.FC = () => {
     <div className="py-xl md:py-2xl">
       <Grid>
         <div className="col-start-1 col-end-7 md:col-start-5 md:col-end-9 flex flex-col items-center">
-          <h2 className="text-md md:text-lg text-cinder-alpha-50 font-light">
+          <h2 className="text-lg md:text-xl text-cinder-alpha-50 font-light">
             Share
           </h2>
 

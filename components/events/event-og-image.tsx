@@ -30,22 +30,21 @@ const EventOgImage: React.FC<EventOgImageProps> = ({ title }) => {
             display: flex;
             flex-direction: column;
             position: relative;
-            width: 83.333333%;
+            width: 90%;
             z-index: 10;
           }
 
           .date {
-            color: rgba(255, 255, 255, 0.75);
-            font-size: 24px;
-            font-weight: 500;
+            color: rgba(255, 255, 255, 0.50);
+            font-size: 36px;
+            font-weight: 700;
           }
 
           .title {
             font-size: 64px;
             font-weight: 700;
             line-height: 1.25;
-            margin-top: 40px;
-            margin-bottom: 80px;
+            margin: 160px 0;
           }
 
           .logo {

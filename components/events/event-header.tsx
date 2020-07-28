@@ -12,34 +12,36 @@ type EventHeaderProps = {
 
 const EventHeader: React.FC<EventHeaderProps> = ({ date, title, meetupId }) => {
   return (
-    <Grid className="min-h-screen items-center py-header">
-      <div className="col-start-1 col-end-7 md:col-start-2 md:col-end-12 flex flex-col">
-        <div className="flex items-center flex-col md:flex-row">
-          <div className="flex-shrink-0 flex md:flex-col items-center text-cinder-alpha-50">
-            <span className="md:text-xl">{moment(date).format('DD')}</span>
-            <span className="ml-sm md:ml-none md:text-lg uppercase">
-              {moment(date).format('MMM')}
-            </span>
-            <span className="ml-sm md:ml-none md:mt-xs">
-              {moment(date).format('YYYY')}
-            </span>
+    <div className="min-h-screen py-xl md:py-2xl flex items-center">
+      <Grid>
+        <div className="col-start-1 col-end-7 md:col-start-2 md:col-end-12 flex flex-col">
+          <div className="flex items-center flex-col md:flex-row">
+            <div className="flex-shrink-0 flex md:flex-col items-center text-cinder-alpha-50">
+              <span className="md:text-xl">{moment(date).format('DD')}</span>
+              <span className="ml-sm md:ml-none md:text-lg uppercase">
+                {moment(date).format('MMM')}
+              </span>
+              <span className="ml-sm md:ml-none md:mt-xs">
+                {moment(date).format('YYYY')}
+              </span>
+            </div>
+
+            <h1 className="mt-lg md:mt-none md:ml-2xl typography-hero text-center md:text-left">
+              {title}
+            </h1>
           </div>
 
-          <h1 className="mt-lg md:mt-none md:ml-2xl typography-hero text-center md:text-left">
-            {title}
-          </h1>
+          <a
+            href={`https://www.meetup.com/GraphQL-Texas/events/${meetupId}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-xl md:mt-xl mx-auto md:mr-none btn-cta"
+          >
+            Make your reservation
+          </a>
         </div>
-
-        <a
-          href={`https://www.meetup.com/GraphQL-Texas/events/${meetupId}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-xl md:mt-xl mx-auto md:mr-none btn-cta"
-        >
-          Make your reservation
-        </a>
-      </div>
-    </Grid>
+      </Grid>
+    </div>
   )
 }
 

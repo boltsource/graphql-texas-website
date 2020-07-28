@@ -68,7 +68,7 @@ const EventSpeakers: React.FC<EventSpeakersProps> = ({
       </svg>
 
       <Grid className="relative z-10">
-        <div className="col-start-1 col-end-7 md:col-start-3 md:col-end-11 flex flex-col items-center">
+        <div className="col-start-2 col-end-6 md:col-start-3 md:col-end-11 flex flex-col items-center">
           <h2 className="typography-section-title text-center">Speakers</h2>
 
           {speakers.length ? (
@@ -77,9 +77,9 @@ const EventSpeakers: React.FC<EventSpeakersProps> = ({
                 <li
                   key={speaker.id}
                   className={[
-                    'flex flex-col  items-center',
+                    'flex flex-col items-center text-center',
                     i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse',
-                    i !== 0 && 'mt-lg md:mt-xl',
+                    i !== 0 && 'mt-xl',
                   ]
                     .filter(Boolean)
                     .join(' ')}
@@ -100,7 +100,7 @@ const EventSpeakers: React.FC<EventSpeakersProps> = ({
                     ].join(' ')}
                   >
                     <h3 className="typography-subtitle">{speaker.name}</h3>
-                    <p className="md:mt-xs">
+                    <p className="mt-md md:mt-xs leading-normal">
                       {speaker.role}
                       {speaker.company ? (
                         <React.Fragment>

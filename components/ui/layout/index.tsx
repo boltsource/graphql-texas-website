@@ -40,13 +40,7 @@ const Layout: React.FC<LayoutProps> = ({
         isScrolling={isScrolling}
         navItems={navItems}
       />
-      <main
-        className={['flex-auto flex flex-col xpy-header z-10', className]
-          .filter(Boolean)
-          .join(' ')}
-      >
-        {children}
-      </main>
+      <main className={className}>{children}</main>
       {isPreview !== undefined ? <PreviewMode isActive={isPreview} /> : null}
     </React.Fragment>
   )

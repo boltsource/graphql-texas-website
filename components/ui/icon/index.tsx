@@ -3,7 +3,9 @@ import React from 'react'
 const icons = {
   'calendar-month': require('./calendar-month'),
   'chevron-down': require('./chevron-down'),
+  close: require('./close'),
   'close-circle': require('./close-circle'),
+  'hamburger-menu': require('./hamburger-menu'),
   'macbook-pro': require('./macbook-pro'),
   microphone: require('./microphone'),
   users: require('./users'),
