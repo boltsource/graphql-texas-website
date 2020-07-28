@@ -1,5 +1,4 @@
 import { NextSeo, NextSeoProps } from 'next-seo'
-import { useRouter } from 'next/dist/client/router'
 import React from 'react'
 
 const SEOConfig = {
@@ -12,21 +11,21 @@ const SEOConfig = {
 }
 
 type SEOProps = NextSeoProps & {
+  slug?: string
   image?: string
 }
 
 const SEO: React.FC<SEOProps> = ({
   title,
   description,
+  slug,
   image,
   openGraph,
   ...props
 }) => {
-  const { asPath } = useRouter()
-
   const metaTitle = title ?? SEOConfig.title
   const metaDescription = description ?? SEOConfig.description
-  const metaUrl = [SEOConfig.url, asPath].join('')
+  const metaUrl = [SEOConfig.url, slug].filter(Boolean).join('/')
   const metaImages = SEOConfig.images.map((image) => ({
     url: `${SEOConfig.url}/${image}`,
   }))
@@ -40,7 +39,9 @@ const SEO: React.FC<SEOProps> = ({
         url: metaUrl,
         site_name: SEOConfig.title,
         title: title ?? SEOConfig.title,
-        images: image ? [{ url: image }, ...metaImages] : metaImages,
+        images: image
+          ? [{ url: `${SEOConfig.url}/${image}` }, ...metaImages]
+          : metaImages,
         ...openGraph,
       }}
       twitter={{

@@ -47,7 +47,12 @@ const EventPage: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
         { icon: 'microphone', title: 'Host', anchor: 'host' },
       ]}
     >
-      <SEO title={event.title} description={event.description} />
+      <SEO
+        slug={`events/${event.slug}`}
+        title={event.title}
+        description={event.description}
+        image={`api/og-image/events/${event.slug}`}
+      />
       <EventHeader
         date={event.date}
         title={event.title}

@@ -140,6 +140,7 @@ module.exports = {
       lg: '24px',
       xl: '48px',
       '2xl': '64px',
+      '3xl': '96px',
     },
     fontWeight: {
       light: '300',

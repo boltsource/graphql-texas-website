@@ -18,6 +18,7 @@ query getPastEvents($stage: Stage!, $date: Date!) {
 query getEventBySlug($stage: Stage!, $slug: String!) {
   event(stage: $stage, where: { slug: $slug }) {
     isComplete
+    slug
     date
     title
     meetupId
