@@ -25,7 +25,7 @@ const EventHost: React.FC<EventHostProps> = ({ description, host }) => {
       id="host"
       className="relative min-h-screen-minus-header bg-cinder text-white py-xl md:py-2xl flex items-center"
     >
-      <Grid>
+      <Grid className="relative z-10">
         <div className="col-start-1 col-end-7 md:col-start-3 md:col-end-11 flex flex-col">
           <h2 className="typography-section-title self-center text-center md:self-start md:text-left">
             Meet the host

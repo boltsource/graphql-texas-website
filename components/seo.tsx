@@ -1,7 +1,7 @@
 import { NextSeo, NextSeoProps } from 'next-seo'
 import React from 'react'
 
-const SEOConfig = {
+export const SEOConfig = {
   url: 'https://graphql-texas.org',
   title: 'GraphQL Texas',
   twitter: '@GraphQL_TX',

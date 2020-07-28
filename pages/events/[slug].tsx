@@ -1,5 +1,6 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next'
 import { useRouter } from 'next/dist/client/router'
+import dynamic from 'next/dynamic'
 import React from 'react'
 import { Any } from 'ts-toolbelt'
 
@@ -11,6 +12,10 @@ import SEO from '@components/seo'
 import FullScreenMessage from '@components/ui/full-screen-message'
 import Layout from '@components/ui/layout'
 import { getEventBySlug } from '@lib/api'
+
+const EventShare = dynamic(() => import('@components/events/event-share'), {
+  ssr: false,
+})
 
 const EventPage: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
   preview,
@@ -61,6 +66,7 @@ const EventPage: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
       <EventSpeakers isComplete={event.isComplete} speakers={event.speakers} />
       <EventSchedule isComplete={event.isComplete} talks={event.schedule} />
       <EventHost description={event.description} host={event.host} />
+      <EventShare />
     </Layout>
   )
 }
