@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import React from 'react'
 
 import Grid from '../grid'
@@ -24,16 +23,12 @@ const Header: React.FC<HeaderProps> = ({
       ].join(' ')}
     >
       <Grid className="items-center">
-        <Link href="/">
-          <a>
-            <Logo
-              className={[
-                'col-start-1 col-end-4 w-auto transition-all ease-in duration-200',
-                isScrolling ? 'h-logo-collapsed' : 'h-logo',
-              ].join(' ')}
-            />
-          </a>
-        </Link>
+        <Logo
+          className={[
+            'col-start-1 col-end-4 w-auto transition-all ease-in duration-200',
+            isScrolling ? 'h-logo-collapsed' : 'h-logo',
+          ].join(' ')}
+        />
         <Nav isLoading={isLoading} items={navItems} />
       </Grid>
     </header>

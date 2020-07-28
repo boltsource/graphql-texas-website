@@ -1,20 +1,3 @@
-query getUpcomingEvents($stage: Stage!, $date: Date!) {
-  events(stage: $stage, where: { date_gte: $date }) {
-    date
-    title
-    slug
-  }
-}
-
-query getPastEvents($stage: Stage!, $date: Date!) {
-  events(stage: $stage, where: { date_lte: $date }) {
-    id
-    date
-    title
-    slug
-  }
-}
-
 query getEventBySlug($stage: Stage!, $slug: String!) {
   event(stage: $stage, where: { slug: $slug }) {
     isComplete
