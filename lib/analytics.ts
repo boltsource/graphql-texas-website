@@ -14,7 +14,6 @@ const logPageView = () => {
     const { title } = document
     ga.set({ url, title })
     ga.pageview(url, [], title)
-    console.log('log!')
   }, 0)
 }
 

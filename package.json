@@ -4,10 +4,11 @@
   "version": "1.0.0",
   "scripts": {
     "generate": "dotenv -e .env.local graphql-codegen",
-    "prexdev": "yarn generate",
     "dev": "next dev",
-    "lint": "eslint --ignore-path .gitignore --ext .js,.ts,.tsx . --ignore-path .eslintignore",
     "build": "next build",
+    "lint": "eslint --ignore-path .gitignore --ext .js,.ts,.tsx . --ignore-path .eslintignore",
+    "test": "echo No tests available",
+    "validate": "yarn lint && yarn test",
     "start": "next start"
   },
   "dependencies": {
