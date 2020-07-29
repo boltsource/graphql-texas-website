@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import moment from 'moment'
 import React from 'react'
+import Markdown from 'react-markdown'
 
 import Grid from '@components/ui/grid'
 import Icon from '@components/ui/icon'
@@ -71,12 +72,11 @@ const EventSchedule: React.FC<EventScheduleProps> = ({ isComplete, talks }) => {
                         }}
                         transition={{
                           duration: 0.2,
-                          ease: [0.04, 0.62, 0.23, 0.98],
                         }}
                       >
-                        <p className="mb-sm md:mb-md leading-normal text-cinder-alpha-75">
+                        <Markdown className="mb-sm md:mb-md text-cinder-alpha-75 typography-markdown">
                           {talk.description}
-                        </p>
+                        </Markdown>
                       </motion.div>
                     ) : null}
                   </AnimatePresence>

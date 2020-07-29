@@ -1,4 +1,5 @@
 import React from 'react'
+import Markdown from 'react-markdown'
 import { Union } from 'ts-toolbelt'
 
 import Grid from '@components/ui/grid'
@@ -32,36 +33,37 @@ const EventHost: React.FC<EventHostProps> = ({ description, host }) => {
           </h2>
 
           {host ? (
-            <div className="mt-xl md:mt-2xl flex flex-col md:flex-row-reverse items-center">
-              <img
-                src={host.picture.url}
-                title={host.name}
-                className="flex-shrink-0 w-avatar-small md:w-avatar-big h-avatar-small md:h-avatar-big rounded-full"
-              />
+            <div className="mt-lg md:mt-xl flex-auto">
+              <div className="mt-lg md:mt-none md:flex-auto flex flex-col md:flex-row-reverse items-center">
+                <img
+                  src={host.picture.url}
+                  title={host.name}
+                  className="flex-shrink-0 w-avatar-small md:w-avatar-big h-avatar-small md:h-avatar-big rounded-full"
+                />
 
-              <div className="mt-lg md:mt-none md:flex-auto md:mr-2xl">
-                <p className="font-light leading-normal text-md text-center md:text-left">
-                  {description}
-                </p>
-
-                <p className="mt-lg md:mt-xl text-center md:text-right font-medium leading-normal">
-                  {host.name}, {host.role}
-                  {host.company ? (
-                    <React.Fragment>
-                      {' '}
-                      at{' '}
-                      <a
-                        href={host.company.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="typography-link-contrast"
-                      >
-                        {host.company.name}
-                      </a>
-                    </React.Fragment>
-                  ) : null}
-                </p>
+                <Markdown
+                  source={description}
+                  className="md:mr-xl mt-xl md:mt-none typography-markdown text-center md:text-left md:flex-auto"
+                />
               </div>
+
+              <p className="mt-lg md:mt-xl text-center md:text-right font-medium leading-normal">
+                {host.name}, {host.role}
+                {host.company ? (
+                  <React.Fragment>
+                    {' '}
+                    at{' '}
+                    <a
+                      href={host.company.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="typography-link-contrast"
+                    >
+                      {host.company.name}
+                    </a>
+                  </React.Fragment>
+                ) : null}
+              </p>
             </div>
           ) : (
             <p>To be announced</p>

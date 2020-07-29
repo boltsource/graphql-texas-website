@@ -23,7 +23,9 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
-    "react-share": "^4.2.1"
+    "react-markdown": "^4.3.1",
+    "react-share": "^4.2.1",
+    "remove-markdown": "^0.3.0"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^1.17.6",
@@ -36,6 +38,7 @@
     "@types/react": "^16.9.43",
     "@types/react-dom": "^16.9.8",
     "@types/react-helmet": "^6.0.0",
+    "@types/remove-markdown": "^0.1.1",
     "@typescript-eslint/eslint-plugin": "^3.7.1",
     "@typescript-eslint/parser": "^3.7.1",
     "dotenv-cli": "^3.2.0",

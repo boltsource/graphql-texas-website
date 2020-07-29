@@ -593,6 +593,46 @@ module.exports = {
         extneds: 'linkBase',
         color: theme('colors.pink-salmon'),
       },
+      markdown: {
+        lineHeight: theme('lineHeight.relaxed'),
+
+        '> * + *': {
+          marginTop: '1em',
+        },
+        h1: {
+          extends: 'h1',
+        },
+        h2: {
+          extends: 'h2',
+        },
+        h3: {
+          extends: 'h3',
+        },
+        h4: {
+          extends: 'h4',
+        },
+        h5: {
+          extends: 'h5',
+        },
+        h6: {
+          extends: 'h6',
+        },
+        ul: {
+          listStyleType: 'disc',
+        },
+        ol: {
+          listStyleType: 'decimal',
+        },
+        a: {
+          extends: 'link',
+        },
+        'b, strong': {
+          fontWeight: theme('fontWeight.bold'),
+        },
+        'i, em': {
+          fontStyle: 'italic',
+        },
+      },
     }),
   },
   variants: {

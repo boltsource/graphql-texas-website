@@ -1,5 +1,6 @@
 import { NextSeo, NextSeoProps } from 'next-seo'
 import React from 'react'
+import removeMd from 'remove-markdown'
 
 export const SEOConfig = {
   url: 'https://graphql-texas.org',
@@ -24,7 +25,7 @@ const SEO: React.FC<SEOProps> = ({
   ...props
 }) => {
   const metaTitle = title ?? SEOConfig.title
-  const metaDescription = description ?? SEOConfig.description
+  const metaDescription = removeMd(description ?? SEOConfig.description)
   const metaUrl = [SEOConfig.url, slug].filter(Boolean).join('/')
   const metaImages = SEOConfig.images.map((image) => ({
     url: `${SEOConfig.url}/${image}`,
