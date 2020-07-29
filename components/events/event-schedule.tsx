@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion'
-import moment from 'moment'
+import moment from 'moment-timezone'
 import React from 'react'
 import Markdown from 'react-markdown'
 
@@ -40,7 +40,7 @@ const EventSchedule: React.FC<EventScheduleProps> = ({ isComplete, talks }) => {
                     onClick={() => handleTalkClick(talk.id)}
                   >
                     <span className="flex-shrink-0  text-cinder-alpha-50">
-                      {moment(talk.time).format('hh:mm a')}
+                      {moment(talk.time).tz('CST6CDT').format('hh:mm a')}
                     </span>
                     <div className="flex-auto ml-md md:ml-lg">
                       <h3 className="typography-subtitle">{talk.title}</h3>

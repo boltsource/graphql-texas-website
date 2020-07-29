@@ -17,6 +17,7 @@
     "graphql": "^15.3.0",
     "graphql-request": "^2.0.0",
     "moment": "^2.27.0",
+    "moment-timezone": "^0.5.31",
     "next": "^9.5.0",
     "next-seo": "^4.7.3",
     "puppeteer-core": "^5.2.1",
