@@ -32,7 +32,7 @@ const EventSchedule: React.FC<EventScheduleProps> = ({ isComplete, talks }) => {
           <h2 className="typography-section-title text-center">Schedule</h2>
 
           {talks.length ? (
-            <div className="mt-xl md:mt-2xl md:self-stretch">
+            <div className="mt-xl md:mt-2xl self-stretch">
               {talks.map((talk, i) => (
                 <React.Fragment key={talk.id}>
                   <div

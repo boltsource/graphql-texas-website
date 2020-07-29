@@ -8,7 +8,7 @@
     "build": "next build",
     "lint": "eslint --ignore-path .gitignore --ext .js,.ts,.tsx . --ignore-path .eslintignore",
     "test": "echo No tests available",
-    "validate": "yarn lint && yarn test",
+    "validate": "yarn build && yarn lint && yarn test",
     "start": "next start"
   },
   "dependencies": {
