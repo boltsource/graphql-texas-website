@@ -1,5 +1,3 @@
-/* eslint-disable import/default */
-
 import chrome from 'chrome-aws-lambda'
 import { NextApiRequest, NextApiResponse } from 'next'
 import puppeteer from 'puppeteer-core'
