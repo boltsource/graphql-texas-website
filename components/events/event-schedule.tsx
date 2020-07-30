@@ -25,30 +25,30 @@ const EventSchedule: React.FC<EventScheduleProps> = ({ isComplete, talks }) => {
   return (
     <div
       id="schedule"
-      className="min-h-screen-minus-header py-xl md:py-2xl flex items-center"
+      className="min-h-screen-minus-header py-xl lg:py-2xl flex items-center"
     >
       <Grid>
-        <div className="col-start-1 col-end-7 md:col-start-3 md:col-end-11 flex flex-col items-center">
+        <div className="col-start-1 col-end-7 lg:col-start-3 lg:col-end-11 flex flex-col items-center">
           <h2 className="typography-section-title text-center">Schedule</h2>
 
           {talks.length ? (
-            <div className="mt-xl md:mt-2xl self-stretch">
+            <div className="mt-xl lg:mt-2xl self-stretch">
               {talks.map((talk, i) => (
                 <React.Fragment key={talk.id}>
                   <div
-                    className="group flex items-center cursor-pointer py-sm md:py-md"
+                    className="group flex items-center cursor-pointer py-sm lg:py-md"
                     onClick={() => handleTalkClick(talk.id)}
                   >
                     <span className="flex-shrink-0  text-cinder-alpha-50">
                       {moment(talk.time).tz('CST6CDT').format('hh:mm a')}
                     </span>
-                    <div className="flex-auto ml-md md:ml-lg">
+                    <div className="flex-auto ml-md lg:ml-lg">
                       <h3 className="typography-subtitle">{talk.title}</h3>
                     </div>
                     <button
                       type="button"
                       className={[
-                        'flex-shrink-0 text-cinder-alpha-25 group-hover:text-cinder-alpha-75 transition ease-in duration-200 w-icon-small h-icon-small md:w-icon md:h-icon',
+                        'flex-shrink-0 text-cinder-alpha-25 group-hover:text-cinder-alpha-75 transition ease-in duration-200 w-icon-small h-icon-small lg:w-icon lg:h-icon',
                         expandedTalk === talk.id && 'transform rotate-180',
                       ]
                         .filter(Boolean)
@@ -74,7 +74,7 @@ const EventSchedule: React.FC<EventScheduleProps> = ({ isComplete, talks }) => {
                           duration: 0.2,
                         }}
                       >
-                        <Markdown className="mb-sm md:mb-md text-cinder-alpha-75 typography-markdown">
+                        <Markdown className="mb-sm lg:mb-md text-cinder-alpha-75 typography-markdown">
                           {talk.description}
                         </Markdown>
                       </motion.div>
@@ -88,13 +88,13 @@ const EventSchedule: React.FC<EventScheduleProps> = ({ isComplete, talks }) => {
               ))}
             </div>
           ) : (
-            <p className="mt-lg md:mt-xl text-cinder-alpha-50 text-center">
+            <p className="mt-lg lg:mt-xl text-cinder-alpha-50 text-center">
               To be announced
             </p>
           )}
 
           {talks.length && !isComplete ? (
-            <p className="mt-xl md:mt-2xl self-end typography-small text-cinder-alpha-50 text-right">
+            <p className="mt-xl lg:mt-2xl self-end typography-small text-cinder-alpha-50 text-right">
               + More talks to be announced
             </p>
           ) : null}

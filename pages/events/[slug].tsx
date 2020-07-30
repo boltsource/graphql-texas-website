@@ -25,7 +25,7 @@ const EventPage: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
 
   if (isFallback) {
     return (
-      <Layout isLoading isPreview={preview}>
+      <Layout isPreview={preview} navItems={[null, null, null]}>
         <SEO />
         <EventHeader isLoading />
       </Layout>

@@ -7,14 +7,14 @@ const EventShare: React.FC = () => {
   const url = document.location.href
 
   return (
-    <div className="py-xl md:py-2xl">
+    <div className="py-xl lg:py-2xl">
       <Grid>
-        <div className="col-start-1 col-end-7 md:col-start-5 md:col-end-9 flex flex-col items-center">
-          <h2 className="text-lg md:text-xl text-cinder-alpha-50 font-light">
+        <div className="col-start-1 col-end-7 lg:col-start-5 lg:col-end-9 flex flex-col items-center">
+          <h2 className="text-lg lg:text-xl text-cinder-alpha-50 font-light">
             Share
           </h2>
 
-          <div className="flex justify-around mt-lg md:mt-xl self-stretch">
+          <div className="flex justify-around mt-lg lg:mt-xl self-stretch">
             <share.TwitterShareButton url={url}>
               <share.TwitterIcon round />
             </share.TwitterShareButton>

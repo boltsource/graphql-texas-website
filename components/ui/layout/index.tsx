@@ -1,18 +1,16 @@
 import React from 'react'
 
 import Header from './header'
-import Nav from './nav'
+import { NavProps } from './nav'
 import PreviewMode from './preview-mode'
 
 type LayoutProps = {
-  isLoading?: boolean
   isPreview?: boolean
-  navItems?: React.ComponentProps<typeof Nav>['items']
+  navItems?: NavProps['items']
   className?: string
 }
 
 const Layout: React.FC<LayoutProps> = ({
-  isLoading,
   isPreview,
   navItems,
   className,
@@ -35,11 +33,7 @@ const Layout: React.FC<LayoutProps> = ({
 
   return (
     <React.Fragment>
-      <Header
-        isLoading={isLoading}
-        isScrolling={isScrolling}
-        navItems={navItems}
-      />
+      <Header isScrolling={isScrolling} navItems={navItems} />
       <main className={className}>{children}</main>
       {isPreview !== undefined ? <PreviewMode isActive={isPreview} /> : null}
     </React.Fragment>

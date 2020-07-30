@@ -1,72 +1,47 @@
+import classNames from 'classnames'
 import { AnimatePresence, motion } from 'framer-motion'
 import React from 'react'
 
 import Icon, { IconVariant } from '../icon'
 
-type NavItem = {
-  icon: IconVariant
-  title: string
-  anchor: string
+export type NavProps = {
+  items: ({
+    icon: IconVariant
+    title: string
+    anchor: string
+  } | null)[]
 }
 
-type NavProps = {
-  isLoading?: boolean
-  items?: NavItem[]
-}
-
-const Nav: React.FC<NavProps> = ({ isLoading, items }) => {
+const Nav: React.FC<NavProps> = ({ items }) => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false)
 
-  const handleItemClick = React.useCallback(
-    (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-      e.preventDefault()
+  const handleOpenMenu = React.useCallback(() => {
+    setIsMenuOpen(true)
+  }, [])
 
-      const target = document.getElementById(
-        e.currentTarget.hash.replace('#', '')
-      )
-
-      if (target) {
-        window.scrollTo({
-          top: target.offsetTop - 80,
-          behavior: 'smooth',
-        })
-
-        setIsMenuOpen(false)
-      }
-    },
-    []
-  )
-
-  const menu = items?.map((item) => (
-    <a
-      key={JSON.stringify(item)}
-      href={`#${item.anchor}`}
-      className="mt-md md:mt-none flex items-center text-cinder-alpha-50 hover:text-cinder-alpha-75 text-lg md:text-md transition ease-in duration-200"
-      onClick={handleItemClick}
-    >
-      <Icon
-        variant={item.icon}
-        className="flex-shrink-0 w-icon h-icon text-cinder-alpha-25 mr-md"
-      />
-      {item.title}
-    </a>
-  ))
+  const handleCloseMenu = React.useCallback(() => {
+    setIsMenuOpen(false)
+  }, [])
 
   return (
     <React.Fragment>
-      {isLoading ? (
-        <div className="md:hidden skeleton w-icon h-icon col-start-6" />
+      {items.every((i) => !i) ? (
+        <div className="lg:hidden col-start-6 flex justify-end">
+          <div className="skeleton w-icon h-icon" />
+        </div>
       ) : (
-        <button
-          type="button"
-          className="md:hidden w-icon h-icon col-start-6"
-          onClick={() => setIsMenuOpen(true)}
-        >
-          <Icon
-            variant="hamburger-menu"
-            className="w-full h-full text-cinder-alpha-25"
-          />
-        </button>
+        <div className="lg:hidden col-start-6 flex justify-end">
+          <button
+            type="button"
+            className="w-icon h-icon"
+            onClick={handleOpenMenu}
+          >
+            <Icon
+              variant="hamburger-menu"
+              className="w-full h-full text-cinder-alpha-25"
+            />
+          </button>
+        </div>
       )}
 
       <AnimatePresence>
@@ -77,7 +52,7 @@ const Nav: React.FC<NavProps> = ({ isLoading, items }) => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed z-40 top-0 left-0 right-0 bottom-0 bg-cinder-alpha-75"
+              className="lg:hidden fixed z-40 top-0 left-0 right-0 bottom-0 bg-cinder-alpha-75"
             />
 
             <motion.div
@@ -85,7 +60,7 @@ const Nav: React.FC<NavProps> = ({ isLoading, items }) => {
               animate={{ right: 0 }}
               exit={{ right: -300 }}
               transition={{ duration: 0.2 }}
-              className="fixed z-50 w-menu h-full top-0 right-0 bg-white shadow-2xl flex flex-col justify-center p-md"
+              className="lg:hidden fixed z-50 w-menu h-full top-0 right-0 bg-white shadow-2xl flex flex-col justify-center p-md"
             >
               <button
                 type="button"
@@ -98,34 +73,67 @@ const Nav: React.FC<NavProps> = ({ isLoading, items }) => {
                   className="w-full h-full text-cinder-alpha-25"
                 />
               </button>
-              {menu}
+
+              <NavMenu isMobile items={items} closeMenu={handleCloseMenu} />
             </motion.div>
           </React.Fragment>
         ) : null}
       </AnimatePresence>
 
-      {/* {isMenuOpen ? (
-        <React.Fragment>
-          
-        </React.Fragment>
-      ) : null} */}
-
-      {/* {isMenuOpen ? (
-        <React.Fragment>
-          <div className="fixed top-0 right-0 bottom-0 left-0 bg-cinder-alpha-75 flex flex-col items-end z-40" />
-
-          
-        </React.Fragment>
-      ) : null} */}
-
-      <nav className="hidden col-start-8 col-end-13 md:flex justify-between items-center">
-        {isLoading
-          ? Array.from({ length: 3 }).map((_, i) => (
-              <div key={i} className="skeleton w-1/4 h-icon" />
-            ))
-          : menu}
-      </nav>
+      <NavMenu items={items} closeMenu={handleCloseMenu} />
     </React.Fragment>
+  )
+}
+
+type NavMenuProps = NavProps & {
+  isMobile?: boolean
+  closeMenu: () => void
+}
+
+const NavMenu: React.FC<NavMenuProps> = ({ isMobile, items, closeMenu }) => {
+  const handleItemClick = React.useCallback(
+    (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+      e.preventDefault()
+
+      const target = document.getElementById(
+        e.currentTarget.hash.replace('#', '')
+      )
+
+      if (target) {
+        window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' })
+        closeMenu()
+      }
+    },
+    [closeMenu]
+  )
+
+  return (
+    <nav
+      className={classNames(
+        isMobile ? 'grid' : 'hidden',
+        'grid-flow-row gap-md',
+        'lg:grid lg:col-start-7 lg:col-end-13 lg:grid-flow-col lg:gap-lg'
+      )}
+    >
+      {items.map((item, i) =>
+        item ? (
+          <a
+            key={JSON.stringify(item)}
+            href={`#${item.anchor}`}
+            className="flex items-center lg:justify-end text-cinder-alpha-50 hover:text-cinder-alpha-75 text-md transition ease-in duration-200"
+            onClick={handleItemClick}
+          >
+            <Icon
+              variant={item.icon}
+              className="flex-shrink-0 w-icon h-icon text-cinder-alpha-25 mr-md"
+            />
+            {item.title}
+          </a>
+        ) : (
+          <div key={i} className="skeleton h-icon" />
+        )
+      )}
+    </nav>
   )
 }
 

@@ -2,19 +2,14 @@ import React from 'react'
 
 import Grid from '../grid'
 import Logo from './logo'
-import Nav from './nav'
+import Nav, { NavProps } from './nav'
 
 type HeaderProps = {
-  isLoading?: boolean
   isScrolling: boolean
-  navItems?: React.ComponentProps<typeof Nav>['items']
+  navItems?: NavProps['items']
 }
 
-const Header: React.FC<HeaderProps> = ({
-  isLoading,
-  isScrolling,
-  navItems,
-}) => {
+const Header: React.FC<HeaderProps> = ({ isScrolling, navItems }) => {
   return (
     <header
       className={[
@@ -29,7 +24,8 @@ const Header: React.FC<HeaderProps> = ({
             isScrolling ? 'h-logo-collapsed' : 'h-logo',
           ].join(' ')}
         />
-        <Nav isLoading={isLoading} items={navItems} />
+
+        {navItems ? <Nav items={navItems} /> : null}
       </Grid>
     </header>
   )

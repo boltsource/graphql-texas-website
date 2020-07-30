@@ -29,7 +29,7 @@ const EventSpeakers: React.FC<EventSpeakersProps> = ({
   return (
     <div
       id="speakers"
-      className="min-h-screen-minus-header bg-royal-blue text-white py-xl md:py-2xl relative overflow-hidden flex items-center"
+      className="min-h-screen-minus-header bg-royal-blue text-white py-xl lg:py-2xl relative overflow-hidden flex items-center"
     >
       <svg
         width="299"
@@ -68,17 +68,17 @@ const EventSpeakers: React.FC<EventSpeakersProps> = ({
       </svg>
 
       <Grid className="relative z-10">
-        <div className="col-start-2 col-end-6 md:col-start-3 md:col-end-11 flex flex-col items-center">
+        <div className="col-start-2 col-end-6 lg:col-start-3 lg:col-end-11 flex flex-col items-center">
           <h2 className="typography-section-title text-center">Speakers</h2>
 
           {speakers.length ? (
-            <ul className="mt-xl md:mt-2xl md:self-stretch">
+            <ul className="mt-xl lg:mt-2xl lg:self-stretch">
               {speakers.map((speaker, i) => (
                 <li
                   key={speaker.id}
                   className={[
                     'flex flex-col items-center text-center',
-                    i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse',
+                    i % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse',
                     i !== 0 && 'mt-xl',
                   ]
                     .filter(Boolean)
@@ -88,19 +88,19 @@ const EventSpeakers: React.FC<EventSpeakersProps> = ({
                     <img
                       src={speaker.picture.url}
                       title={speaker.name}
-                      className="w-avatar-small md:w-avatar-big h-avatar-small md:h-avatar-big rounded-full"
+                      className="w-avatar-small lg:w-avatar-big h-avatar-small lg:h-avatar-big rounded-full"
                     />
                   ) : null}
                   <div
                     className={[
-                      'mt-sm md:mt-none flex flex-col items-center',
+                      'mt-sm lg:mt-none flex flex-col items-center',
                       i % 2 === 0
-                        ? 'md:items-start md:ml-lg'
-                        : 'md:items-end md:mr-lg',
+                        ? 'lg:items-start lg:ml-lg'
+                        : 'lg:items-end lg:mr-lg',
                     ].join(' ')}
                   >
                     <h3 className="typography-subtitle">{speaker.name}</h3>
-                    <p className="mt-md md:mt-xs leading-normal">
+                    <p className="mt-md lg:mt-xs leading-normal">
                       {speaker.role}
                       {speaker.company ? (
                         <React.Fragment>
@@ -122,11 +122,11 @@ const EventSpeakers: React.FC<EventSpeakersProps> = ({
               ))}
             </ul>
           ) : (
-            <p className="mt-lg md:mt-xl text-center">To be announced</p>
+            <p className="mt-lg lg:mt-xl text-center">To be announced</p>
           )}
 
           {speakers.length && !isComplete ? (
-            <p className="mt-xl md:mt-2xl md:self-end typography-small text-center">
+            <p className="mt-xl lg:mt-2xl lg:self-end typography-small text-center">
               + More speakers to be announced
             </p>
           ) : null}

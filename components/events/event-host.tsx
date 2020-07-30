@@ -24,30 +24,30 @@ const EventHost: React.FC<EventHostProps> = ({ description, host }) => {
   return (
     <div
       id="host"
-      className="relative min-h-screen-minus-header bg-cinder text-white py-xl md:py-2xl flex items-center"
+      className="relative min-h-screen-minus-header bg-cinder text-white py-xl lg:py-2xl flex items-center"
     >
       <Grid className="relative z-10">
-        <div className="col-start-1 col-end-7 md:col-start-3 md:col-end-11 flex flex-col">
-          <h2 className="typography-section-title self-center text-center md:self-start md:text-left">
+        <div className="col-start-1 col-end-7 lg:col-start-3 lg:col-end-11 flex flex-col">
+          <h2 className="typography-section-title self-center text-center lg:self-start lg:text-left">
             Meet the host
           </h2>
 
           {host ? (
-            <div className="mt-lg md:mt-xl flex-auto">
-              <div className="mt-lg md:mt-none md:flex-auto flex flex-col md:flex-row-reverse items-center">
+            <div className="mt-lg lg:mt-xl flex-auto">
+              <div className="mt-lg lg:mt-none lg:flex-auto flex flex-col lg:flex-row-reverse items-center">
                 <img
                   src={host.picture.url}
                   title={host.name}
-                  className="flex-shrink-0 w-avatar-small md:w-avatar-big h-avatar-small md:h-avatar-big rounded-full"
+                  className="flex-shrink-0 w-avatar-small lg:w-avatar-big h-avatar-small lg:h-avatar-big rounded-full"
                 />
 
                 <Markdown
                   source={description}
-                  className="md:mr-xl mt-xl md:mt-none typography-markdown text-center md:text-left md:flex-auto"
+                  className="lg:mr-xl mt-xl lg:mt-none typography-markdown text-center lg:text-left lg:flex-auto"
                 />
               </div>
 
-              <p className="mt-lg md:mt-xl text-center md:text-right font-medium leading-normal">
+              <p className="mt-lg lg:mt-xl text-center lg:text-right font-medium leading-normal">
                 {host.name}, {host.role}
                 {host.company ? (
                   <React.Fragment>
