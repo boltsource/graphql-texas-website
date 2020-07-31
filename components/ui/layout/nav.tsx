@@ -117,18 +117,23 @@ const NavMenu: React.FC<NavMenuProps> = ({ isMobile, items, closeMenu }) => {
     >
       {items.map((item, i) =>
         item ? (
-          <a
+          <div
             key={JSON.stringify(item)}
-            href={`#${item.anchor}`}
-            className="flex items-center lg:justify-end text-cinder-alpha-50 hover:text-cinder-alpha-75 text-md transition ease-in duration-200"
-            onClick={handleItemClick}
+            className="flex justify-start lg:justify-end"
           >
-            <Icon
-              variant={item.icon}
-              className="flex-shrink-0 w-icon h-icon text-cinder-alpha-25 mr-md"
-            />
-            {item.title}
-          </a>
+            <a
+              key={JSON.stringify(item)}
+              href={`#${item.anchor}`}
+              className="flex items-center text-cinder-alpha-50 hover:text-cinder-alpha-75 text-md transition ease-in duration-200"
+              onClick={handleItemClick}
+            >
+              <Icon
+                variant={item.icon}
+                className="flex-shrink-0 w-icon h-icon text-cinder-alpha-25 mr-md"
+              />
+              {item.title}
+            </a>
+          </div>
         ) : (
           <div key={i} className="skeleton h-icon" />
         )

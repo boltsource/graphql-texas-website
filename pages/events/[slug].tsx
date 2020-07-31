@@ -5,7 +5,7 @@ import React from 'react'
 import { Any } from 'ts-toolbelt'
 
 import EventHeader from '@components/events/event-header'
-import EventHost from '@components/events/event-host'
+import EventInfo from '@components/events/event-info'
 import EventSchedule from '@components/events/event-schedule'
 import EventSpeakers from '@components/events/event-speakers'
 import SEO from '@components/seo'
@@ -48,9 +48,9 @@ const EventPage: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
     <Layout
       isPreview={preview}
       navItems={[
-        { icon: 'users', title: 'Speakers', anchor: 'speakers' },
+        { icon: 'info-circle', title: 'Info', anchor: 'info' },
+        { icon: 'microphone', title: 'Speakers', anchor: 'speakers' },
         { icon: 'calendar-month', title: 'Schedule', anchor: 'schedule' },
-        { icon: 'microphone', title: 'Host', anchor: 'host' },
       ]}
     >
       <SEO
@@ -64,9 +64,9 @@ const EventPage: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
         title={event.title}
         meetupId={event.meetupId}
       />
+      <EventInfo description={event.description} />
       <EventSpeakers isComplete={event.isComplete} speakers={event.speakers} />
       <EventSchedule isComplete={event.isComplete} talks={event.schedule} />
-      <EventHost description={event.description} host={event.host} />
       <EventShare />
     </Layout>
   )

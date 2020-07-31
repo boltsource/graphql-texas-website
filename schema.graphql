@@ -24,16 +24,5 @@ query getEventBySlug($stage: Stage!, $slug: String!) {
       description
     }
     description
-    host {
-      picture {
-        url
-      }
-      name
-      role
-      company {
-        name
-        url
-      }
-    }
   }
 }

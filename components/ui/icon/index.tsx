@@ -6,6 +6,7 @@ const icons = {
   close: require('./close'),
   'close-circle': require('./close-circle'),
   'hamburger-menu': require('./hamburger-menu'),
+  'info-circle': require('./info-circle'),
   'macbook-pro': require('./macbook-pro'),
   microphone: require('./microphone'),
   users: require('./users'),
