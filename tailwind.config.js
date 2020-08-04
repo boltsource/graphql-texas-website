@@ -16,6 +16,7 @@ module.exports = {
       transparent: 'transparent',
 
       black: '#000000',
+      'bright-turquoise': '#34F6F2',
       cinder: '#1a1725',
       'pink-salmon': '#ff8caa',
       porcelain: '#ecf0f1',
@@ -590,8 +591,8 @@ module.exports = {
         },
       },
       'link-contrast': {
-        extneds: 'linkBase',
-        color: theme('colors.pink-salmon'),
+        extends: 'linkBase',
+        color: theme('colors.bright-turquoise'),
       },
       markdown: {
         lineHeight: theme('lineHeight.relaxed'),

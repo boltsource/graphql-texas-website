@@ -1,5 +1,6 @@
-query getEventBySlug($stage: Stage!, $slug: String!) {
+query getEventForEventPage($stage: Stage!, $slug: String!) {
   event(stage: $stage, where: { slug: $slug }) {
+    id
     isComplete
     slug
     date
@@ -24,5 +25,24 @@ query getEventBySlug($stage: Stage!, $slug: String!) {
       description
     }
     description
+  }
+}
+
+query getEventForOgImage($stage: Stage!, $id: ID!) {
+  event(stage: $stage, where: { id: $id }) {
+    date
+    title
+  }
+}
+
+query getTalkForOgImage($stage: Stage!, $id: ID!) {
+  talk(stage: $stage, where: { id: $id }) {
+    title
+    speaker {
+      name
+      picture {
+        url
+      }
+    }
   }
 }

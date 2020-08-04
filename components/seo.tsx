@@ -27,7 +27,8 @@ const SEO: React.FC<SEOProps> = ({
   const metaTitle = title ?? SEOConfig.title
   const metaDescription = removeMd(description ?? SEOConfig.description)
   const metaUrl = [SEOConfig.url, slug].filter(Boolean).join('/')
-  const metaImages = SEOConfig.images.map((image) => ({
+
+  const metaImages = (image ? [image] : SEOConfig.images).map((image) => ({
     url: `${SEOConfig.url}/${image}`,
   }))
 
@@ -40,10 +41,7 @@ const SEO: React.FC<SEOProps> = ({
         url: metaUrl,
         site_name: SEOConfig.title,
         title: title ?? SEOConfig.title,
-        images: image
-          ? [{ url: `${SEOConfig.url}/${image}` }, ...metaImages]
-          : metaImages,
-        ...openGraph,
+        images: metaImages,
       }}
       twitter={{
         handle: SEOConfig.twitter,

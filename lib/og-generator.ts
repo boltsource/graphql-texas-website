@@ -3,48 +3,11 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import puppeteer from 'puppeteer-core'
 import React from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
-import { Helmet } from 'react-helmet'
 
 const getHtml = async <C extends React.ComponentType<any>>(
   component: C,
   props: React.ComponentProps<C>
-) => {
-  const content = renderToStaticMarkup(React.createElement(component, props))
-  const helmet = Helmet.renderStatic()
-
-  return `
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-      *, ::before, ::after {
-        box-sizing: border-box;
-        border-width: 0;
-        border-style: solid;
-        border-color: currentColor;
-      }
-
-      html {
-        font-family: "Rubik", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-      }
-    
-      body {
-        font-size: 18px;
-        line-height: 1.25;
-        margin: 0;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
-    </style>
-    ${helmet.style.toString()}
-  </head>
-  <body>${content}</body>
-</html>
-`
-}
+) => renderToStaticMarkup(React.createElement(component, props))
 
 let _page: puppeteer.Page | null
 

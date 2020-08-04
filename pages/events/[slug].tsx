@@ -11,7 +11,7 @@ import EventSpeakers from '@components/events/event-speakers'
 import SEO from '@components/seo'
 import FullScreenMessage from '@components/ui/full-screen-message'
 import Layout from '@components/ui/layout'
-import { getEventBySlug } from '@lib/api'
+import { getEventForEventPage } from '@lib/api'
 
 const EventShare = dynamic(() => import('@components/events/event-share'), {
   ssr: false,
@@ -57,7 +57,7 @@ const EventPage: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
         slug={`events/${event.slug}`}
         title={event.title}
         description={event.description}
-        image={`api/og-image/events/${event.slug}`}
+        image={`api/og-image/events/${event.id}`}
       />
       <EventHeader
         date={event.date}
@@ -81,11 +81,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps<{
   preview: boolean
-  event: Any.PromiseOf<ReturnType<typeof getEventBySlug>>
+  event: Any.PromiseOf<ReturnType<typeof getEventForEventPage>>
 }> = async (req) => {
   const preview = Boolean(req.preview)
   const slug = req.params!.slug as string
-  const event = await getEventBySlug({ slug }, preview)
+  const event = await getEventForEventPage({ slug }, preview)
 
   return {
     revalidate: 1,
