@@ -6,25 +6,25 @@ query getEventForEventPage($stage: Stage!, $slug: String!) {
     date
     title
     meetupId
-    speakers {
-      id
-      picture {
-        url
-      }
-      name
-      role
-      company {
-        name
-        url
-      }
-    }
+    description
     schedule {
       id
       time
       title
       description
+      speaker {
+        id
+        picture {
+          url
+        }
+        name
+        role
+        company {
+          name
+          url
+        }
+      }
     }
-    description
   }
 }
 

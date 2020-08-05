@@ -4,7 +4,7 @@ import { Union } from 'ts-toolbelt'
 import Grid from '@components/ui/grid'
 import { Speaker, Company, Event } from '@lib/api'
 
-type EventSpeaker = {
+export type EventSpeaker = {
   id: Speaker['id']
   picture: Union.Nullable<{
     url: Speaker['picture']['url']

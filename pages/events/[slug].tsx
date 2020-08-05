@@ -7,7 +7,7 @@ import { Any } from 'ts-toolbelt'
 import EventHeader from '@components/events/event-header'
 import EventInfo from '@components/events/event-info'
 import EventSchedule from '@components/events/event-schedule'
-import EventSpeakers from '@components/events/event-speakers'
+import EventSpeakers, { EventSpeaker } from '@components/events/event-speakers'
 import SEO from '@components/seo'
 import FullScreenMessage from '@components/ui/full-screen-message'
 import Layout from '@components/ui/layout'
@@ -65,7 +65,12 @@ const EventPage: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
         meetupId={event.meetupId}
       />
       <EventInfo description={event.description} />
-      <EventSpeakers isComplete={event.isComplete} speakers={event.speakers} />
+      <EventSpeakers
+        isComplete={event.isComplete}
+        speakers={
+          event.schedule.map((s) => s.speaker).filter(Boolean) as EventSpeaker[]
+        }
+      />
       <EventSchedule isComplete={event.isComplete} talks={event.schedule} />
       <EventShare />
     </Layout>

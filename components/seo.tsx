@@ -42,6 +42,7 @@ const SEO: React.FC<SEOProps> = ({
         site_name: SEOConfig.title,
         title: title ?? SEOConfig.title,
         images: metaImages,
+        ...openGraph,
       }}
       twitter={{
         handle: SEOConfig.twitter,

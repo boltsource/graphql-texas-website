@@ -160,6 +160,8 @@ module.exports = {
       'icon-small': '24px',
       logo: '64px',
       'logo-collapsed': '48px',
+      'avatar-xs': '25px',
+      'avatar-md': '50px',
       'avatar-small': '100px',
       'avatar-big': '150px',
       ...Object.entries(theme('fontSize')).reduce(
@@ -327,6 +329,8 @@ module.exports = {
       'third-screen': '33vw',
       icon: '40px',
       'icon-small': '24px',
+      'avatar-xs': '25px',
+      'avatar-md': '50px',
       'avatar-small': '100px',
       'avatar-big': '150px',
       menu: '300px',
@@ -617,6 +621,9 @@ module.exports = {
         },
         h6: {
           extends: 'h6',
+        },
+        'ul, li': {
+          listStylePosition: 'inside',
         },
         ul: {
           listStyleType: 'disc',

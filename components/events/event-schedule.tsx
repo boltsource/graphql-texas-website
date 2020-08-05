@@ -2,14 +2,25 @@ import { motion, AnimatePresence } from 'framer-motion'
 import moment from 'moment-timezone'
 import React from 'react'
 import Markdown from 'react-markdown'
+import { Union } from 'ts-toolbelt'
 
 import Grid from '@components/ui/grid'
 import Icon from '@components/ui/icon'
-import { Event, Talk } from '@lib/api'
+import { Event, Talk, Speaker } from '@lib/api'
+
+type EventTalk = {
+  id: Talk['id']
+  time: Talk['time']
+  title: Talk['title']
+  description: Talk['description']
+  speaker?: Union.Nullable<{
+    name: Speaker['name']
+  }>
+}
 
 type EventScheduleProps = {
   isComplete: Event['isComplete']
-  talks: Pick<Talk, 'id' | 'time' | 'title' | 'description'>[]
+  talks: EventTalk[]
 }
 
 const EventSchedule: React.FC<EventScheduleProps> = ({ isComplete, talks }) => {
@@ -44,6 +55,11 @@ const EventSchedule: React.FC<EventScheduleProps> = ({ isComplete, talks }) => {
                     </span>
                     <div className="flex-auto ml-md lg:ml-lg">
                       <h3 className="typography-subtitle">{talk.title}</h3>
+                      {talk.speaker ? (
+                        <h4 className="mt-xs text-cinder-alpha-50">
+                          {talk.speaker.name}
+                        </h4>
+                      ) : null}
                     </div>
                     <button
                       type="button"
