@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic'
 import React from 'react'
 import { Any } from 'ts-toolbelt'
 
+import EventCFP from '@components/events/event-cfp'
 import EventHeader from '@components/events/event-header'
 import EventInfo from '@components/events/event-info'
 import EventSchedule from '@components/events/event-schedule'
@@ -51,6 +52,7 @@ const EventPage: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
         { icon: 'info-circle', title: 'Info', anchor: 'info' },
         { icon: 'microphone', title: 'Speakers', anchor: 'speakers' },
         { icon: 'calendar-month', title: 'Schedule', anchor: 'schedule' },
+        { icon: 'macbook-pro', title: 'CFP', anchor: 'CFP' },
       ]}
     >
       <SEO
@@ -72,6 +74,7 @@ const EventPage: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
         }
       />
       <EventSchedule isComplete={event.isComplete} talks={event.schedule} />
+      <EventCFP form={event.form} />
       <EventShare />
     </Layout>
   )
