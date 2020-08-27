@@ -25,6 +25,30 @@ query getEventForEventPage($stage: Stage!, $slug: String!) {
         }
       }
     }
+    form {
+      id
+      fields {
+        __typename
+        ... on FormInput {
+          name
+          type
+          inputLabel: label
+          placeholder
+          required
+        }
+        ... on FormTextarea {
+          name
+          textareaLabel: label
+          placeholder
+          required
+        }
+        ... on FormCheckbox {
+          name
+          checkboxLabel: label
+          required
+        }
+      }
+    }
   }
 }
 
