@@ -25,6 +25,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-ga": "^3.1.2",
+    "react-hook-form": "^6.5.3",
     "react-markdown": "^4.3.1",
     "react-share": "^4.2.1",
     "remove-markdown": "^0.3.0"
